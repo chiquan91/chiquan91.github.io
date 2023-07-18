@@ -1,0 +1,11 @@
+{
+	"applinks": {
+		"apps": [],
+		"details": [
+			{
+				"appID": "MH8WVHNX7F.com.spectrumhhi.ble-wifi",
+				"paths": [ "*" ]
+			}
+		]
+	}
+}

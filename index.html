@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // Function to redirect based on the user agent
+    function redirectToAppStore() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        // Android redirection
+        if (typeof Android !== 'undefined' && typeof Android.isAppInstalled === 'function') {
+          if (Android.isAppInstalled("com.kwikset.blewifi")) {
+            // The app is installed, no need to redirect
+            return;
+          }
+        }
+        // The app is not installed, redirect to the Play Store
+        window.location.href = "https://play.google.com/store/apps/details?id=com.kwikset.blewifi&hl=en&gl=US";
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/us/app/kwikset/id1465996742";
+      } else {
+        // Fallback redirection if the user agent is unknown
+        window.location.href = "https://apps.apple.com/us/app/kwikset/id1465996742";
+      }
+    }
+
+    // Call the redirection function when the page loads
+    window.onload = redirectToAppStore;
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body>
+  <h1>Hello Worlds</h1>
+</body>
+</html>
